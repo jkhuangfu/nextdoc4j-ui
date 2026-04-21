@@ -15,8 +15,8 @@ import { baseRequestClient } from '#/api/request';
 import { REQUEST_TIMEOUTS } from '#/constants/request-timeout';
 import { sortOpenApiSpec, sortSwaggerConfig } from '#/utils/openapi-sort';
 
-const STORAGE_KEY = 'nextdoc4j-current-service';
-const STORAGE_TABS_KEY = 'nextdoc4j-service-tabs';
+const STORAGE_KEY = 'doc4nestjs-current-service';
+const STORAGE_TABS_KEY = 'doc4nestjs-service-tabs';
 
 export interface ServiceItem {
   name: string;
@@ -202,11 +202,16 @@ export const useAggregationStore = defineStore('aggregation', () => {
       };
     }
 
-    const [openApiResult, configResult] = await Promise.all([
-      getOpenAPI(),
-      getOpenAPIConfig(),
-    ]);
-
+    const configResult = await getOpenAPIConfig();
+    const firstUrl = configResult.data.urls[0]?.url;
+    if (!firstUrl) {
+      throw new Error('No OpenAPI URL found in config');
+    }
+    const openApiResult = await getOpenAPI(firstUrl);
+    // const [openApiResult, configResult] = await Promise.all([
+    //   getOpenAPI(),
+    //   getOpenAPIConfig(),
+    // ]);
     mainConfigCache.value.openApi = sortRequiredOpenApiSpec(openApiResult.data);
     mainConfigCache.value.config = sortRequiredSwaggerConfig(configResult.data);
 

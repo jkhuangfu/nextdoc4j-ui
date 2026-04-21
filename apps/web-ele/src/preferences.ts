@@ -8,9 +8,9 @@ import { defineOverridesPreferences } from '@vben/preferences';
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
   app: {
-    name: 'Nextdoc4j',
+    name: 'doc4nestjs',
     accessMode: 'mixed',
-    watermarkContent: 'Nextdoc4j',
+    watermarkContent: 'doc4nestjs',
   },
   theme: {
     mode: 'auto',

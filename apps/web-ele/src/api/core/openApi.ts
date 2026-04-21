@@ -20,17 +20,15 @@ const sortRequiredSwaggerConfig = (data: SwaggerConfig) => {
 };
 
 // 获取 OpenAPI
-export async function getOpenAPI() {
-  const response = await requestClient.get<{ data: OpenAPISpec }>(
-    '/v3/api-docs',
-  );
+export async function getOpenAPI(url: string) {
+  const response = await requestClient.get<{ data: OpenAPISpec }>(url);
   return withSortedData(response, sortRequiredOpenApiSpec(response.data));
 }
 
 // 获取 OpenAPI 分组
 export async function getOpenAPIConfig() {
   const response = await requestClient.get<{ data: SwaggerConfig }>(
-    '/v3/api-docs/swagger-config',
+    '/doc4nestjs/config',
   );
   return withSortedData(response, sortRequiredSwaggerConfig(response.data));
 }

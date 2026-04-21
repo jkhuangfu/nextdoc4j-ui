@@ -14,7 +14,7 @@ watch(
   async ([enable, content]) => {
     if (enable) {
       await updateWatermark({
-        content: content || 'Nextdoc4j',
+        content: content || 'doc4nestjs',
       });
     } else {
       destroyWatermark();

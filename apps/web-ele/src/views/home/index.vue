@@ -44,9 +44,9 @@ const schemas = computed(() => openApi.value?.components?.schemas ?? {});
 const brand = computed(() => openApi.value?.['x-nextdoc4j']?.brand);
 
 // 获取应用版本 - 从后端 x-nextdoc4j.version 读取，默认版本兜底
-const appVersion = computed(
-  () => openApi.value?.['x-nextdoc4j']?.version || '1.0.0',
-);
+// const appVersion = computed(
+//   () => openApi.value?.['x-nextdoc4j']?.version || '1.0.0',
+// );
 
 const apiCount = computed(() => {
   if (isAggregation.value) {
@@ -149,7 +149,7 @@ const getServiceBadge = (service: ServiceItem) => {
       <!-- 左侧项目信息 -->
       <div class="flex flex-1 flex-col gap-4 text-sm">
         <h1 class="text-3xl font-bold">
-          {{ info?.title ?? 'Nextdoc4j' }}
+          {{ info?.title ?? 'doc4nestjs' }}
         </h1>
         <p>
           {{ info?.description }}
@@ -194,11 +194,11 @@ const getServiceBadge = (service: ServiceItem) => {
           >
             OpenAPI {{ openapi ?? '' }}
           </span>
-          <span
+          <!-- <span
             class="transform rounded-2xl border border-[var(--el-color-success-light-3)] px-2 py-1 text-[var(--el-color-success-light-3)] hover:-translate-y-1"
           >
-            Nextdoc4j v{{ appVersion }}
-          </span>
+            doc4nestjs v{{ appVersion }}
+          </span> -->
         </div>
       </div>
       <!-- 右侧 Logo 区域 -->
