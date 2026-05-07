@@ -1,6 +1,6 @@
 {
   "name": "nextdoc4j",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "private": true,
   "keywords": [
     "nextdoc4j",
@@ -96,8 +96,8 @@
     },
     "overrides": {
       "@ast-grep/napi": "catalog:",
-      "@types/node": "catalog:",
       "@ctrl/tinycolor": "catalog:",
+      "@types/node": "catalog:",
       "clsx": "catalog:",
       "esbuild": "0.25.3",
       "pinia": "catalog:",
